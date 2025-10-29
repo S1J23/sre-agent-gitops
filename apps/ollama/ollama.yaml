@@ -19,8 +19,16 @@ spec:
       containers:
       - name: ollama
         image: ollama/ollama:latest
+        volumeMounts:
+        - mountPath: "/root/.ollama/"
+          name: ollama-storage
         ports:
-        - containerPort: 11434 --ollama官方的标准端口，类似于MySQL的3306
+        - containerPort: 11434 
+      volumes:
+        - name: ollama-storage
+            persistentVolumeClaim:
+              claimName: ollama-claim
+          
 ---
 apiVersion: v1
 kind: Service
