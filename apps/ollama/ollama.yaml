@@ -26,11 +26,8 @@ spec:
         - containerPort: 11434 
       volumes:
       - name: ollama-storage
-        hostPath:
-          path: /share
-          type: DirectoryOrCreate
-      nodeName:
-        k8s-node3
+        persistentVolumeClaim:
+          claimName: ollama-claim
 ---
 apiVersion: v1
 kind: Service
