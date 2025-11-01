@@ -30,7 +30,7 @@ spec:
           path: /share
           type: DirectoryOrCreate
       nodeName:
-        k8s-node2
+        k8s-node3
 ---
 apiVersion: v1
 kind: Service
